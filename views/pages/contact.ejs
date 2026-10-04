@@ -1,0 +1,81 @@
+<div class="container">
+  <h2 class="katryan-title">Contact Us</h2>
+  <div class="row">
+    <div class="col-md-6 contact-left">
+      <%- include('../inc/messages') %>
+      <p class="bold-content">
+        <%= (contactDetail.address || '1 Marylands Road, London, W9 2DU').replace(/,/g, ',<br />') %>
+      </p>
+      <p class="bold-content">Telephone: <%= contactDetail.tel || '020 8969 9995' %></p>
+      <p class="bold-content">Fax Number: <%= contactDetail.fax || '020 8969 9994' %></p>
+      <p class="bold-content">Email: <%= contactDetail.email || 'info@katryan.co.uk' %></p>
+      You can use the form below to submit your enquiry.
+      <p style="font-size:11px">Please note that items marked with a <span class="form_mandatory">*</span> are required.</p>
+
+      <form method="post" action="/contact/store">
+        <div class="row">
+          <div class="col-md-4">&nbsp;</div>
+          <div class="col-md-6 text-left">
+            Call Me <input type="radio" name="contact_type" value="Call" checked>&nbsp;
+            Email Me&nbsp;<input type="radio" name="contact_type" value="Email">
+          </div>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Title</label>
+          <select class="form-control col-md-8" name="title">
+            <option value=""></option>
+            <option value="Mr">Mr</option><option value="Mrs">Mrs</option>
+            <option value="Ms">Ms</option><option value="Miss">Miss</option>
+            <option value="Mr &amp; Mrs">Mr &amp; Mrs</option><option value="Dr">Dr</option>
+            <option value="Prof">Prof</option><option value="Dame">Dame</option>
+            <option value="Sir">Sir</option><option value="Lady">Lady</option>
+            <option value="Lord">Lord</option>
+          </select>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">First Name <span class="form_mandatory">*</span></label>
+          <input type="text" name="fst_name" maxlength="40" class="form-control col-md-8" required />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Surname <span class="form_mandatory">*</span></label>
+          <input type="text" name="lst_name" maxlength="40" class="form-control col-md-8" required />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">E-Mail Address <span class="form_mandatory">*</span></label>
+          <input type="email" name="email" maxlength="250" class="form-control col-md-8" required />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Phone No <span class="form_mandatory">*</span></label>
+          <input type="text" name="phone" maxlength="20" class="form-control col-md-8" required />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Message</label>
+          <textarea name="message" class="form-control"></textarea>
+        </div>
+        <div class="row form-inline form_register">
+          <p>
+            <label for="privacy">
+              <input id="privacy" type="checkbox" name="privacy" onchange="checkPrivacy(this,'#contact_btn');">
+              By submitting this form you agree to the terms of our <a href="/privacy">Privacy Policy</a>
+            </label>
+          </p>
+          <p>
+            <label for="mark">
+              <input id="mark" type="checkbox" name="marketing">
+              I would like to receive occasional guides, webinar invites and newsletters by email, from Katryan
+            </label>
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4 text-left" style="padding:0px;">
+            <button id="contact_btn" type="submit" class="btn btn-blue btn-big" disabled>Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-6">
+      <div id="googlemapcontactus" style="min-height:460px;"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Katryan Admin Panel</title>
+  <link href="/asserts/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/asserts/owl/owl.carousel.min.css" rel="stylesheet">
+  <link href="/asserts/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+  <link href="/asserts/css/styles.css" rel="stylesheet">
+  <link href="/asserts/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Roboto|Anton|Merriweather|Raleway|Ubuntu" rel="stylesheet">
+</head>
+<body>
+<div id="wrapper">
+
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/admin">Katryan Admin Panel</a>
+    </div>
+
+    <div class="navbar-default sidebar" role="navigation">
+      <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+          <li class="sidebar-search">
+            <form class="input-group custom-search-form" method="get" action="/admin/properties/search">
+              <input type="text" class="form-control" placeholder="Property ID/Postcode" name="keyword">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+              </span>
+            </form>
+          </li>
+          <li>
+            <a <% if(page==='home'){ %>class="active"<% } %> href="/admin">
+              <i class="fa fa-dashboard fa-fw"></i> Dashboard
+            </a>
+          </li>
+          <li <% if(page==='property'){ %>class="active"<% } %>>
+            <a href="/admin/properties"><i class="fa fa-building-o fa-fw"></i> Properties<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li><a href="/admin/properties"><i class="fa fa-eye fa-fw"></i> Show All</a></li>
+            </ul>
+          </li>
+          <li>
+            <a <% if(page==='slider'){ %>class="active"<% } %> href="/admin/slider">
+              <i class="fa fa-picture-o fa-fw"></i> Slider
+            </a>
+          </li>
+          <li>
+            <a <% if(page==='user'){ %>class="active"<% } %> href="/admin/users">
+              <i class="fa fa-users fa-fw"></i> Registered Users
+            </a>
+          </li>
+          <li>
+            <a <% if(page==='messages'){ %>class="active"<% } %> href="/admin/users/messages">
+              <i class="fa fa-envelope-o fa-fw"></i> Messages
+            </a>
+          </li>
+          <li>
+            <form action="/admin/logout" method="post" style="display:inline;">
+              <button type="submit" class="btn btn-link" style="padding:10px 15px;color:#fff;">
+                <i class="fa fa-sign-out fa-fw"></i> Logout
+              </button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="page-wrapper">
+    <% if (success && success.length) { %>
+      <div class="alert alert-success alert-dismissible" role="alert" style="margin:15px;">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= success[0] %>
+      </div>
+    <% } %>
+    <% if (error && error.length) { %>
+      <div class="alert alert-danger alert-dismissible" role="alert" style="margin:15px;">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= error[0] %>
+      </div>
+    <% } %>
+    <%- body %>
+  </div>
+
+  <footer style="margin-top:50px;">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        Katryan Property Services Ltd, 1 Marylands Road, London, W9 2DU
+      </div>
+      <div class="col-md-12 text-center">
+        <span class="text-gray">Tel: </span>020 8969 9995
+        <span class="text-gray"> &nbsp;Fax: </span>020 8969 9994
+        <span class="text-gray"> &nbsp;Email: </span>info@katryan.co.uk
+      </div>
+    </div>
+  </footer>
+  <div class="footer-bot">
+    <div class="container text-center">
+      <span>Developed &amp; Engineered by: <a style="color:#5BC236;" href="http://adameveandapple.co.uk/">AdamEve&amp;Apple</a></span>
+    </div>
+  </div>
+</div>
+
+<script src="/asserts/js/jquery-1.11.0.js"></script>
+<script src="/asserts/owl/owl.carousel.min.js"></script>
+<script src="/asserts/js/bootstrap.min.js"></script>
+<script src="/asserts/js/plugins/metisMenu/metisMenu.min.js"></script>
+<script src="/asserts/js/scripts.js"></script>
+</body>
+</html>

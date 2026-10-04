@@ -1,0 +1,38 @@
+const mongoose = require('mongoose');
+
+const RegisterUserSchema = new mongoose.Schema({
+  title: String,
+  fst_name: String,
+  lst_name: String,
+  email: String,
+  phone_day: String,
+  phone_eve: String,
+  phone_mob: String,
+  areas: String,
+  property_for: String,
+  min_amount: String,
+  max_amount: String,
+  bedrooms: String,
+  property_type: String,
+  req_frm_date: String,
+  spec_req: String,
+  known_by: String,
+  occupation: String,
+  living_status: String,
+  current_position: String,
+  is_buy_for_sell: String,
+  like_valuation: String,
+  is_subscribed: String,
+  flat_no: String,
+  building_name: String,
+  house_no: String,
+  street: String,
+  district: String,
+  city: String,
+  state: String,
+  postalcode: String,
+  country: String,
+  add_msg: String,
+}, { timestamps: true });
+
+module.exports = mongoose.models.RegisterUser || mongoose.model('RegisterUser', RegisterUserSchema);

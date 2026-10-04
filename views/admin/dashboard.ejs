@@ -1,0 +1,129 @@
+
+<div class="row">
+  <!-- Properties Panel -->
+  <div class="col-md-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-building-o fa-5x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div style="font-size: 3em; font-weight: bold;"><%= propertyCount %></div>
+            <div>Properties</div>
+          </div>
+        </div>
+      </div>
+      <a href="/admin/properties">
+        <div class="panel-footer">
+          <span class="pull-left">View Details</span>
+          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Registered Users Panel -->
+  <div class="col-md-3">
+    <div class="panel panel-green">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-users fa-5x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div style="font-size: 3em; font-weight: bold;"><%= userCount %></div>
+            <div>Registered Users</div>
+          </div>
+        </div>
+      </div>
+      <a href="/admin/users">
+        <div class="panel-footer">
+          <span class="pull-left">View Details</span>
+          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Messages Panel -->
+  <div class="col-md-3">
+    <div class="panel panel-green">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-envelope fa-5x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div style="font-size: 3em; font-weight: bold;"><%= msgCount %></div>
+            <div>Messages</div>
+          </div>
+        </div>
+      </div>
+      <a href="/admin/users/messages">
+        <div class="panel-footer">
+          <span class="pull-left">View Details</span>
+          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Contact Information</h3>
+      </div>
+      <div class="panel-body">
+        <form method="POST" action="/admin/contact/update/<%= userDetail._id %>">
+          <!-- Contact Name -->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Contact Name</span>
+              <input type="text" class="form-control" name="con_name" value="<%= userDetail.con_name %>" placeholder="Contact Name">
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Address</span>
+              <input type="text" class="form-control" name="address" value="<%= userDetail.address %>" placeholder="Address">
+            </div>
+          </div>
+
+          <!-- Tel Number -->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Tel Number</span>
+              <input type="text" class="form-control" name="tel" value="<%= userDetail.tel %>" placeholder="Tel Number">
+            </div>
+          </div>
+
+          <!-- Fax -->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Fax</span>
+              <input type="text" class="form-control" name="fax" value="<%= userDetail.fax %>" placeholder="Fax">
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Email</span>
+              <input type="email" class="form-control" name="email" value="<%= userDetail.email %>" placeholder="Email">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,278 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="katryan-title">Register With Us</h2>
+    </div>
+  </div>
+
+  <div class="row form_register">
+    <%- include('../inc/messages') %>
+
+    <form action="/register/user" method="post" id="regForm">
+      <div class="col-md-6">
+        <h4>Your Contact Details</h4>
+        <div class="row form-inline">
+          <label for="email" class="col-md-4">E-Mail Address <span class="form_mandatory">*</span></label>
+          <input type="email" name="email" id="email" maxlength="250" class="form-control col-md-8" required />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Title</label>
+          <select class="form-control col-md-8" name="title">
+            <option value=""></option><option value="Mr">Mr</option><option value="Mrs">Mrs</option>
+            <option value="Ms">Ms</option><option value="Miss">Miss</option>
+            <option value="Mr &amp; Mrs">Mr &amp; Mrs</option><option value="Dr">Dr</option>
+            <option value="Prof">Prof</option><option value="Sir">Sir</option>
+          </select>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">First Name <span class="form_mandatory">*</span></label>
+          <input type="text" name="fst_name" maxlength="40" class="form-control col-md-8" required />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Surname <span class="form_mandatory">*</span></label>
+          <input type="text" name="lst_name" maxlength="40" class="form-control col-md-8" required />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Phone No. (Day) <span class="form_mandatory">*</span></label>
+          <input type="text" name="phone_day" maxlength="25" class="form-control col-md-8" required />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Phone No. (Evening)</label>
+          <input type="text" name="phone_eve" maxlength="25" class="form-control col-md-8" />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Phone No. (Mobile)</label>
+          <input type="text" name="phone_mob" maxlength="25" class="form-control col-md-8" />
+        </div>
+        <hr />
+        <h4>Area Requirements</h4>
+        <div class="row form-inline">
+          <label class="col-md-4">Area(s) or a specific street</label>
+          <input type="text" name="areas" class="form-control col-md-8" />
+        </div>
+        <hr />
+        <h4>General Requirements</h4>
+        <div class="row form-inline">
+          <label class="col-md-2 col-xs-2">Buy</label>
+          <div class="col-md-2 col-xs-2"><input type="radio" name="property_for" value="Buy" /></div>
+          <label class="col-md-2 col-xs-2">Sell</label>
+          <div class="col-md-2 col-xs-2"><input type="radio" name="property_for" value="Sell" /></div>
+          <label class="col-md-2 col-xs-2">Rent</label>
+          <div class="col-md-2 col-xs-2"><input type="radio" name="property_for" value="Rent" /></div>
+        </div>
+        <div class="row form-inline">
+          <label style="margin-left:15px;">Your budget</label><br />
+          <label class="col-md-3">From</label>
+          <div class="col-md-4">
+            <select class="form-control" name="min_amount">
+              <option value="0">No Minimum</option>
+              <% for(let i=25000;i<=500000;i+=25000){%><option value="<%=i%>">£ <%=i.toLocaleString()%></option><%}%>
+              <% for(let i=550000;i<=1000000;i+=50000){%><option value="<%=i%>">£ <%=i.toLocaleString()%></option><%}%>
+              <% for(let i=1100000;i<=2000000;i+=100000){%><option value="<%=i%>">£ <%=i.toLocaleString()%></option><%}%>
+            </select>
+          </div>
+          <label class="col-md-1">To</label>
+          <div class="col-md-4">
+            <select class="form-control" name="max_amount">
+              <option value="0">No Maximum</option>
+              <% for(let i=25000;i<=500000;i+=25000){%><option value="<%=i%>">£ <%=i.toLocaleString()%></option><%}%>
+              <% for(let i=550000;i<=1000000;i+=50000){%><option value="<%=i%>">£ <%=i.toLocaleString()%></option><%}%>
+              <% for(let i=1100000;i<=2000000;i+=100000){%><option value="<%=i%>">£ <%=i.toLocaleString()%></option><%}%>
+            </select>
+          </div>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Number of bedrooms?</label>
+          <div class="col-md-8">
+            <select class="form-control" name="bedrooms">
+              <option value="">&nbsp;</option><option value="0">Studio</option>
+              <option value="1">1</option><option value="2">2</option>
+              <option value="3">3</option><option value="4">4</option><option value="5+">5+</option>
+            </select>
+          </div>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Type of property required?</label>
+          <div class="col-md-8">
+            <select class="form-control" name="property_type">
+              <option value="">&nbsp;</option>
+              <option value="Flat">Flat</option><option value="House">House</option>
+              <option value="Studio">Studio</option><option value="Apartment">Apartment</option>
+              <option value="Maisonette">Maisonette</option><option value="Penthouse">Penthouse</option>
+              <option value="Terraced">Terraced</option><option value="Semi Detached">Semi Detached</option>
+              <option value="Detached">Detached</option><option value="Bungalow">Bungalow</option>
+              <option value="Commercial">Commercial</option>
+            </select>
+          </div>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Required from date</label>
+          <input type="text" name="req_frm_date" class="form-control col-md-8" id="datetimepicker1" />
+        </div>
+        <h4>Specific Requirements and Preferences</h4>
+        <div class="row checkBoxSec">
+          <% [['furnished','Furnished'],['roofterrace','Roof Terrace'],['smoker','Smoker'],['children','Children'],['garden','Garden'],['garage','Garage'],['offstreetparking','Off Street Parking'],['modern','Modern'],['period','Period'],['pets','Pets'],['benefits','Housing Benefit']].forEach(function(item){ %>
+          <div class="col-xs-4">
+            <input type="checkbox" name="spec_req[]" value="<%= item[0] %>" id="matchflag_<%= item[0] %>">
+            <label for="matchflag_<%= item[0] %>"><%= item[1] %></label>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-md-6">
+        <h4>Additional Information</h4>
+        <div class="row form-inline">
+          <label class="col-md-4">How did you hear about us?</label>
+          <div class="col-md-8">
+            <select name="known_by" class="form-control">
+              <option value="">&nbsp;</option>
+              <option value="Newspaper">Newspaper</option><option value="Social Networks">Social Networks</option>
+              <option value="Rightmove">Rightmove.co.uk</option><option value="Zoopla">Zoopla.co.uk</option>
+              <option value="OnTheMarket">OnTheMarket.com</option><option value="Board">Board</option>
+              <option value="Referral">Referral</option><option value="Walk in">Walk in</option>
+              <option value="Our Website">Our Website</option><option value="Internet">Internet</option>
+            </select>
+          </div>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Occupation/Business</label>
+          <input type="text" name="occupation" class="form-control col-md-8" />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Living status/Let Type</label>
+          <div class="col-md-8">
+            <select name="living_status" class="form-control">
+              <option value="">&nbsp;</option>
+              <option value="Owner Occupier">Owner Occupier</option>
+              <option value="Private Tenant">Private Tenant</option>
+              <option value="Local Auth Tenant">Local Auth Tenant</option>
+              <option value="Living With Relatives">Living With Relatives</option>
+            </select>
+          </div>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Current position</label>
+          <div class="col-md-8">
+            <select name="current_position" class="form-control">
+              <option value="">&nbsp;</option>
+              <option value="Nothing to Sell">Nothing to Sell</option>
+              <option value="Cash Buyer">Cash Buyer</option>
+              <option value="Have Mortgage">Have Mortgage</option>
+              <option value="Awaiting Mortgage">Awaiting Mortgage</option>
+            </select>
+          </div>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-6">Buying a property to let?</label>
+          <div class="col-md-6">
+            <label><input type="radio" name="is_buy_for_sell" value="1" /> Yes</label>
+            <label><input type="radio" name="is_buy_for_sell" value="0" /> No</label>
+          </div>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-6">Subscribe to our mailing list?</label>
+          <div class="col-md-6">
+            <label><input type="radio" name="is_subscribed" value="1" /> Yes</label>
+            <label><input type="radio" name="is_subscribed" value="0" /> No</label>
+          </div>
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-6">Would you like a free valuation of your property?</label>
+          <div class="col-md-6">
+            <label><input type="radio" name="like_valuation" value="1" /> Yes</label>
+            <label><input type="radio" name="like_valuation" value="0" /> No</label>
+          </div>
+        </div>
+        <hr />
+        <h4>Your Address</h4>
+        <div class="row form-inline">
+          <label class="col-md-4">Flat No</label>
+          <input type="text" name="flat_no" class="form-control col-md-8" />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Building Name</label>
+          <input type="text" name="building_name" class="form-control col-md-8" />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">House No</label>
+          <input type="text" name="house_no" class="form-control col-md-8" />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Street</label>
+          <input type="text" name="street" class="form-control col-md-8" />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Town/City</label>
+          <input type="text" name="city" class="form-control col-md-8" />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">County/State</label>
+          <input type="text" name="state" class="form-control col-md-8" />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Postal/Zip Code</label>
+          <input type="text" name="postalcode" class="form-control col-md-8" />
+        </div>
+        <div class="row form-inline">
+          <label class="col-md-4">Country</label>
+          <div class="col-md-8">
+            <select name="country" class="form-control">
+              <option value="UK" selected>United Kingdom</option>
+              <option value="AF">Afghanistan</option><option value="AL">Albania</option>
+              <option value="AU">Australia</option><option value="BE">Belgium</option>
+              <option value="BR">Brazil</option><option value="CA">Canada</option>
+              <option value="CN">China</option><option value="FR">France</option>
+              <option value="DE">Germany</option><option value="GH">Ghana</option>
+              <option value="GR">Greece</option><option value="HK">Hong Kong</option>
+              <option value="IN">India</option><option value="ID">Indonesia</option>
+              <option value="IE">Ireland (Republic of)</option><option value="IL">Israel</option>
+              <option value="IT">Italy</option><option value="JP">Japan</option>
+              <option value="KE">Kenya</option><option value="MY">Malaysia</option>
+              <option value="MX">Mexico</option><option value="NL">Netherlands</option>
+              <option value="NZ">New Zealand</option><option value="NG">Nigeria</option>
+              <option value="NO">Norway</option><option value="PK">Pakistan</option>
+              <option value="PH">Philippines</option><option value="PL">Poland</option>
+              <option value="PT">Portugal</option><option value="RU">Russian Federation</option>
+              <option value="SA">Saudi Arabia</option><option value="SG">Singapore</option>
+              <option value="ZA">South Africa</option><option value="ES">Spain</option>
+              <option value="LK">Sri Lanka</option><option value="SE">Sweden</option>
+              <option value="CH">Switzerland</option><option value value="TW">Taiwan</option>
+              <option value="TH">Thailand</option><option value="TR">Turkey</option>
+              <option value="AE">United Arab Emirates</option>
+              <option value="US">United States of America</option>
+              <option value="ZW">Zimbabwe</option>
+            </select>
+          </div>
+        </div>
+        <h4>Additional Message, Notes or Comments</h4>
+        <div class="row">
+          <div class="col-md-12">
+            <textarea name="add_msg" class="form-group" rows="8" cols="42"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 text-center">
+        <p>If you can't fill in the form, phone us on 020 8969 9995</p>
+        <br>
+        <p>
+          <label for="privacy">
+            <input id="privacy" type="checkbox" name="privacy" onchange="checkPrivacy(this,'#register_btn');">
+            By submitting this form you agree to the terms of our <a href="/privacy">Privacy Policy</a>
+          </label>
+        </p>
+        <p>
+          <label for="mark">
+            <input id="mark" type="checkbox" name="marketing">
+            I would like to receive occasional guides, webinar invites and newsletters by email, from Katryan
+          </label>
+        </p>
+        <br>
+        <p>You only need to click this button once - a confirmation page will be shown when completed.</p>
+        <button type="submit" class="btn btn-blue btn-lg fnt30" id="register_btn" disabled>Submit</button><br /><br />
+      </div>
+    </form>
+  </div>
+</div>

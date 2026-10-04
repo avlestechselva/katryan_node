@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/img/favicon.ico" type="image/x-icon" rel="icon">
+  <title>Katryan Admin Login</title>
+  <link href="/asserts/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/asserts/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/asserts/css/journal.css" rel="stylesheet">
+  <link href="/asserts/owl/owl.carousel.min.css" rel="stylesheet">
+  <link href="/asserts/css/front.css" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <div class="row">
+          <div class="col-xs-6">
+            <a href="/admin">
+              <img src="/img/logo.png" class="img-responsive" style="height:60px;margin-left:15px;margin-top:10px;"/>
+            </a>
+          </div>
+          <div class="col-xs-6">
+            <h1>Admin Panel</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">Login</div>
+          <div class="panel-body">
+            <% if (error && error.length) { %>
+              <div class="alert alert-danger"><%= error[0] %></div>
+            <% } %>
+            <form class="form-horizontal" method="POST" action="/admin/login">
+              <div class="form-group">
+                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                <div class="col-md-6">
+                  <input id="email" type="email" class="form-control" name="email" required autofocus>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password" class="col-md-4 control-label">Password</label>
+                <div class="col-md-6">
+                  <input id="password" type="password" class="form-control" name="password" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-8 col-md-offset-4">
+                  <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="row">
+    <div class="col-md-12 text-center">Katryan Property Services Ltd, 1 Marylands Road, London, W9 2DU</div>
+    <div class="col-md-12 text-center">
+      <span class="text-gray">Tel: </span>020 8969 9995
+      <span class="text-gray"> &nbsp;Fax: </span>020 8969 9994
+      <span class="text-gray"> &nbsp;Email: </span>info@katryan.co.uk
+    </div>
+  </div>
+</footer>
+<div class="footer-bot">
+  <div class="container text-center">
+    <span>Developed &amp; Engineered by: <a style="color:#5BC236;" href="http://adameveandapple.co.uk/">AdamEve&amp;Apple</a></span>
+  </div>
+</div>
+<script src="/asserts/js/jquery-1.11.0.js"></script>
+<script src="/asserts/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%- include('../inc/messages') %>
+      <% if (properties && properties.length > 0) { %>
+        <% properties.forEach(function(property) { %>
+        <div class="row properyContainer">
+          <div class="col-sm-3 property-img">
+            <% if (property._imgUrl) { %>
+              <img src="<%= property._imgUrl %>" alt="" class="img-responsive center-content">
+            <% } else { %>
+              <img src="/img/default_img.png" alt="" class="img-responsive center-content">
+            <% } %>
+            <% if (property.availability == 4) { %>
+              <span class="photoLabel letAgreed"></span>
+            <% } %>
+          </div>
+          <div class="col-sm-9">
+            <div class="row property-head">
+              <div class="col-sm-4"><%= property.displayPropertyType %></div>
+              <div class="col-sm-4 title"></div>
+              <div class="col-sm-4 price">
+                <% if (property.department === 'Sales' && property.price) { %>
+                  £ <%= Number(property.price).toLocaleString() %>
+                <% } else if (property.department === 'Lettings' && property.rent) { %>
+                  £ <%= property.rent %> <%= property.rentFrequency || '' %>
+                <% } %>
+              </div>
+            </div>
+            <br>
+            <p><%= property.mainSummary %></p>
+            <div>
+              <div class="col-xs-8" style="padding-left:0px;">
+                <a href="/propery/<%= property.propertyID %>" class="btn btn-blue">More Info</a>
+              </div>
+              <div class="pull-right">
+                <% if (property.propertyBedrooms) { %>
+                  <div class="inline-block text-center">
+                    <img src="/img/bedrooms.gif" alt="bedrooms"><br/><%= property.propertyBedrooms %>
+                  </div>
+                <% } %>
+                <% if (property.propertyBathrooms) { %>
+                  <div class="inline-block text-center">
+                    <img src="/img/bathroom.gif" alt="bathroom"><br/><%= property.propertyBathrooms %>
+                  </div>
+                <% } %>
+                <% if (property.propertyReceptionRooms) { %>
+                  <div class="inline-block text-center">
+                    <img src="/img/receptions.gif" alt="receptions"><br/><%= property.propertyReceptionRooms %>
+                  </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+
+        <!-- Pagination -->
+        <% if (totalPages > 1) { %>
+        <nav>
+          <ul class="pagination">
+            <% if (page > 1) { %>
+              <li><a href="?page=<%= page - 1 %>">&laquo;</a></li>
+            <% } %>
+            <% for (let i = 1; i <= totalPages; i++) { %>
+              <li class="<%= i === page ? 'active' : '' %>">
+                <a href="?page=<%= i %>"><%= i %></a>
+              </li>
+            <% } %>
+            <% if (page < totalPages) { %>
+              <li><a href="?page=<%= page + 1 %>">&raquo;</a></li>
+            <% } %>
+          </ul>
+        </nav>
+        <% } %>
+
+      <% } else { %>
+        <h4>No Results found</h4>
+      <% } %>
+    </div>
+  </div>
+</div>

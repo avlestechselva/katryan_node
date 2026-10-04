@@ -1,0 +1,230 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <h2><%= property.propertyID %></h2>
+    <hr>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Property Details</h3>
+      </div>
+      <div class="panel-body">
+        <form>
+
+          <% if (property.branchID) { %>
+          <div class="form-group">
+            <label>Branch ID</label>
+            <input type="text" class="form-control" value="<%= property.branchID %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.clientName) { %>
+          <div class="form-group">
+            <label>Client Name</label>
+            <input type="text" class="form-control" value="<%= property.clientName %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.branchName) { %>
+          <div class="form-group">
+            <label>Branch Name</label>
+            <input type="text" class="form-control" value="<%= property.branchName %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.department) { %>
+          <div class="form-group">
+            <label>Department</label>
+            <input type="text" class="form-control" value="<%= property.department %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.referenceNumber) { %>
+          <div class="form-group">
+            <label>Reference Number</label>
+            <input type="text" class="form-control" value="<%= property.referenceNumber %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.addressNumber) { %>
+          <div class="form-group">
+            <label>Address Number</label>
+            <input type="text" class="form-control" value="<%= property.addressNumber %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.addressName) { %>
+          <div class="form-group">
+            <label>Address Name</label>
+            <input type="text" class="form-control" value="<%= property.addressName %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.addressStreet) { %>
+          <div class="form-group">
+            <label>Address Street</label>
+            <input type="text" class="form-control" value="<%= property.addressStreet %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.address2) { %>
+          <div class="form-group">
+            <label>Address 2</label>
+            <input type="text" class="form-control" value="<%= property.address2 %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.address3) { %>
+          <div class="form-group">
+            <label>Address 3</label>
+            <input type="text" class="form-control" value="<%= property.address3 %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.address4) { %>
+          <div class="form-group">
+            <label>Address 4</label>
+            <input type="text" class="form-control" value="<%= property.address4 %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.addressPostcode) { %>
+          <div class="form-group">
+            <label>Postcode</label>
+            <input type="text" class="form-control" value="<%= property.addressPostcode %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.country) { %>
+          <div class="form-group">
+            <label>Country</label>
+            <input type="text" class="form-control" value="<%= property.country %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.displayAddress) { %>
+          <div class="form-group">
+            <label>Display Address</label>
+            <input type="text" class="form-control" value="<%= property.displayAddress %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.displayPropertyType) { %>
+          <div class="form-group">
+            <label>Property Type</label>
+            <input type="text" class="form-control" value="<%= property.displayPropertyType %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.propertyBedrooms) { %>
+          <div class="form-group">
+            <label>Bedrooms</label>
+            <input type="text" class="form-control" value="<%= property.propertyBedrooms %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.propertyBathrooms) { %>
+          <div class="form-group">
+            <label>Bathrooms</label>
+            <input type="text" class="form-control" value="<%= property.propertyBathrooms %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.propertyReceptionRooms) { %>
+          <div class="form-group">
+            <label>Reception Rooms</label>
+            <input type="text" class="form-control" value="<%= property.propertyReceptionRooms %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.mainSummary) { %>
+          <div class="form-group">
+            <label>Main Summary</label>
+            <textarea class="form-control" rows="4" disabled><%= property.mainSummary %></textarea>
+          </div>
+          <% } %>
+
+          <% if (property.fullDescription) { %>
+          <div class="form-group">
+            <label>Full Description</label>
+            <textarea class="form-control" rows="6" disabled><%= property.fullDescription %></textarea>
+          </div>
+          <% } %>
+
+          <% if (property.price) { %>
+          <div class="form-group">
+            <label>Price</label>
+            <input type="text" class="form-control" value="<%= property.price %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.rent) { %>
+          <div class="form-group">
+            <label>Rent</label>
+            <input type="text" class="form-control" value="<%= property.rent %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.rentFrequency) { %>
+          <div class="form-group">
+            <label>Rent Frequency</label>
+            <input type="text" class="form-control" value="<%= property.rentFrequency %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.latitude) { %>
+          <div class="form-group">
+            <label>Latitude</label>
+            <input type="text" class="form-control" value="<%= property.latitude %>" disabled>
+          </div>
+          <% } %>
+
+          <% if (property.longitude) { %>
+          <div class="form-group">
+            <label>Longitude</label>
+            <input type="text" class="form-control" value="<%= property.longitude %>" disabled>
+          </div>
+          <% } %>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Display Images -->
+    <% if (displayImages && displayImages.length > 0) { %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Display Images</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <% displayImages.forEach(function(img) { %>
+            <div class="col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 15px;">
+              <img src="<%= img %>" class="img-responsive img-thumbnail" alt="Display Image">
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+    <% } %>
+
+    <!-- Floor Images -->
+    <% if (floorImages && floorImages.length > 0) { %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Floor Images</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <% floorImages.forEach(function(img) { %>
+            <div class="col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 15px;">
+              <img src="<%= img %>" class="img-responsive img-thumbnail" alt="Floor Image">
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+    <% } %>
+
+  </div>
+</div>

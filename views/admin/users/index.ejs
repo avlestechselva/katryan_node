@@ -1,0 +1,69 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Registered Users</h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone (Day)</th>
+                <th>For</th>
+                <th>Occupation</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (users && users.length > 0) { %>
+                <% users.forEach(function(user) { %>
+                  <tr>
+                    <td><%= user.title %> <%= user.fst_name %> <%= user.lst_name %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.phone_day %></td>
+                    <td><%= user.property_for %></td>
+                    <td><%= user.occupation %></td>
+                    <td>
+                      <a href="/admin/users/<%= user._id %>" class="btn btn-success btn-xs">
+                        <i class="fa fa-eye"></i> View
+                      </a>
+                    </td>
+                  </tr>
+                <% }); %>
+              <% } else { %>
+                <tr>
+                  <td colspan="6" class="text-center">No users found.</td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <% if (totalPages > 1) { %>
+        <nav>
+          <ul class="pagination">
+            <% if (currentPage > 1) { %>
+              <li><a href="?page=<%= currentPage - 1 %>">&laquo;</a></li>
+            <% } %>
+            <% for (let i = 1; i <= totalPages; i++) { %>
+              <li class="<%= i === currentPage ? 'active' : '' %>">
+                <a href="?page=<%= i %>"><%= i %></a>
+              </li>
+            <% } %>
+            <% if (currentPage < totalPages) { %>
+              <li><a href="?page=<%= currentPage + 1 %>">&raquo;</a></li>
+            <% } %>
+          </ul>
+        </nav>
+        <% } %>
+
+      </div>
+    </div>
+  </div>
+</div>

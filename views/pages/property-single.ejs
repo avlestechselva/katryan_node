@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row property-single-head">
+    <div class="col-sm-4">
+      <%= property.availability || '' %>
+    </div>
+    <div class="col-sm-4 title"><%= property.displayAddress %></div>
+    <div class="col-sm-4 price">
+      <% if (property.department === 'Sales' && property.price && property.forSalePOA != 1) { %>
+        £ <%= Number(property.price).toLocaleString() %>
+      <% } else if (property.department === 'Lettings' && property.rent && property.toLetPOA != 1) { %>
+        £ <%= property.rent %> <%= property.rentFrequency || '' %>
+      <% } else if (property.price && property.forSalePOA != 1) { %>
+        £ <%= property.price %>
+      <% } else if (property.rent && property.toLetPOA != 1) { %>
+        £ <%= property.rent %> <%= property.rentFrequency || '' %>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-10">
+      <div class="row">
+        <div class="col-xs-9">
+          <% if (displayImages && displayImages.length > 0) { %>
+            <div>
+              <img id="disPlayImg" src="<%= displayImages[0].img_url %>" alt="<%= property.displayPropertyType %>" class="img-responsive"><br />
+            </div>
+            <div class="owl-carousel owl-carousel-property owl-theme">
+              <% displayImages.forEach(function(img) { %>
+                <div class="item">
+                  <img onclick="changeDis(this);" src="<%= img.img_url %>" alt="<%= property.displayPropertyType %>" class="img-responsive sideImage">
+                </div>
+              <% }) %>
+            </div>
+          <% } else { %>
+            <img id="disPlayImg" src="/img/default_img.png" alt="<%= property.displayPropertyType %>" class="img-responsive" style="width:100%"><br />
+          <% } %>
+
+          <p class="text-justify"><%- property.mainSummary || '' %></p>
+          <p class="text-justify"><%- property.fullDescription || '' %></p>
+        </div>
+
+        <div class="col-sm-3">
+          <ul>
+            <% ['propertyFeature1','propertyFeature2','propertyFeature3','propertyFeature4','propertyFeature5','propertyFeature6','propertyFeature7','propertyFeature8','propertyFeature9','propertyFeature10'].forEach(function(f) { %>
+              <% if (property[f]) { %><li><%= property[f] %></li><% } %>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-2 text-center">
+      <a href="#"><img src="/img/icon_map.gif" alt="" class="img-responsive" title="Map"></a><br />
+      <% if (floorplans && floorplans.length > 0) { %>
+        <a href="#" data-toggle="modal" data-target="#floorPlans"><img src="/img/icon_aerial.gif" alt="" class="img-responsive" title="Floor Plan"></a><br />
+      <% } %>
+      <a href="#"><img src="/img/icon_localinfo.gif" alt="" class="img-responsive" title="Local Info"></a><br />
+      <a href="#" onclick="printDiv('printableArea');"><img src="/img/icon_print.gif" alt="" class="img-responsive" title="Print"></a><br />
+    </div>
+  </div>
+
+  <hr />
+  <div class="row">
+    <div class="col-sm-4 address-section">
+      <h4>Contact</h4>
+      <b>A: </b><span><%= contactDetail.con_name || 'Katryan Property Services Ltd' %></span><br />
+      <b>T: </b><span><%= contactDetail.tel || '020 8969 9995' %></span><br />
+      <% if (property.department === 'Lettings') { %>
+        <b>E: </b><span><a href="mailto:lettings@katryan.co.uk?Subject=Ref:<%= encodeURIComponent(property.referenceNumber || '') %>">lettings@katryan.co.uk</a></span>
+      <% } else if (property.department === 'Sales') { %>
+        <b>E: </b><span><a href="mailto:sales@katryan.co.uk?Subject=Ref:<%= encodeURIComponent(property.referenceNumber || '') %>">sales@katryan.co.uk</a></span>
+      <% } %>
+    </div>
+    <div class="col-sm-4 col-sm-offset-4">
+      Reference: <%= property.referenceNumber %>
+    </div>
+  </div>
+
+  <br />
+  <div class="row">
+    <div class="col-md-12">
+      <p>IMPORTANT NOTICE</p>
+      <p class="text-justify">Descriptions of the property are subjective and are used in good faith as an opinion and NOT as a statement of fact. Please make further specific enquiries to ensure that our descriptions are likely to match any expectations you may have of the property. We have not tested any services, systems or appliances at this property. We strongly recommend that all the information we provide be verified by you on inspection, and by your Surveyor and Conveyancer.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Floor Plans Modal -->
+<div id="floorPlans" class="modal modal-lg fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Floor Plans</h4>
+      </div>
+      <div class="modal-body">
+        <% if (floorplans && floorplans.length > 0) { %>
+          <% floorplans.forEach(function(fp) { %>
+            <img src="<%= fp.img_url %>" class="img-responsive" />
+          <% }) %>
+        <% } %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

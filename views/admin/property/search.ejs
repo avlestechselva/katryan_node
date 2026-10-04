@@ -1,0 +1,70 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Search Results for: <em><%= keyword %></em></h3>
+      </div>
+      <div class="panel-body">
+
+        <!-- Properties Table -->
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Property ID</th>
+                <th>Postcode</th>
+                <th>Address</th>
+                <th>Department</th>
+                <th>Type</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (properties && properties.length > 0) { %>
+                <% properties.forEach(function(property) { %>
+                  <tr>
+                    <td><%= property.propertyID %></td>
+                    <td><%= property.addressPostcode %></td>
+                    <td><%= property.displayAddress %></td>
+                    <td><%= property.department %></td>
+                    <td><%= property.displayPropertyType %></td>
+                    <td>
+                      <a href="/admin/properties/view/<%= property._id %>" class="btn btn-success btn-xs">
+                        <i class="fa fa-eye"></i> View
+                      </a>
+                    </td>
+                  </tr>
+                <% }); %>
+              <% } else { %>
+                <tr>
+                  <td colspan="6" class="text-center">No properties found for "<%= keyword %>".</td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <% if (totalPages > 1) { %>
+        <nav>
+          <ul class="pagination">
+            <% if (currentPage > 1) { %>
+              <li><a href="?page=<%= currentPage - 1 %>&keyword=<%= keyword %>">&laquo;</a></li>
+            <% } %>
+            <% for (let i = 1; i <= totalPages; i++) { %>
+              <li class="<%= i === currentPage ? 'active' : '' %>">
+                <a href="?page=<%= i %>&keyword=<%= keyword %>"><%= i %></a>
+              </li>
+            <% } %>
+            <% if (currentPage < totalPages) { %>
+              <li><a href="?page=<%= currentPage + 1 %>&keyword=<%= keyword %>">&raquo;</a></li>
+            <% } %>
+          </ul>
+        </nav>
+        <% } %>
+
+      </div>
+    </div>
+  </div>
+</div>

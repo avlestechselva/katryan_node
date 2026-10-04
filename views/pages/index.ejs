@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/css/mystyle.css">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <% if (sliders && sliders.length) { %>
+      <div class="owl-carousel owl-carousel-main owl-theme">
+        <% sliders.forEach(function(slider) { %>
+          <div class="item">
+            <img src="<%= slider.img_url %>"/>
+            <div class="tag"><%= slider.dis_text %></div>
+          </div>
+        <% }) %>
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="katryan-title">Katryan - Estate Agent in West London</h2>
+    </div>
+    <div class="col-md-9 main-para">
+      <p class="text-justify">
+        Katryan is one of West London's fastest growing and leading independent estate agents. Our team is committed to the values of a personalised customer service and professionalism combined with deep sector knowledge to provide a comprehensive service. We are approachable, flexible and innovative in providing our services.
+      </p>
+      <p class="text-justify">
+        Our experience enables us to provide you with an in depth knowledge of the local residential sales, lettings and business property market. We are committed to our customers, be it as a seller, buyer, landlord or as a tenant.
+      </p>
+    </div>
+    <div class="col-md-3">
+      <div class="row">
+        <div class="col-md-12 img-btn">
+          <a href="/propery/lettings/list"><img src="/img/btn/letting.png" /></a>
+        </div>
+        <div class="col-md-12 img-btn">
+          <a href="/propery/sales/list"><img src="/img/btn/sales.png" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row give-space">
+    <div class="col-md-3 text-center">
+      <img alt="find a property logo" src="/img/company/fap.jpg" height="50px" />
+    </div>
+    <div class="col-md-3 text-center">
+      <img alt="prime location logo" src="/img/company/pl.jpg" height="50px" />
+    </div>
+    <div class="col-md-3 text-center">
+      <img alt="zoopla logo" src="/img/company/zoopla.jpg" height="50px" />
+    </div>
+    <div class="col-md-3 text-center">
+      <img alt="the property ombudsman logo" src="/img/TPO_logo.jpg" height="75px" />
+    </div>
+  </div>
+</div>

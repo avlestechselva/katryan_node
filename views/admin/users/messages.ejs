@@ -1,0 +1,63 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Messages</h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Preferred Contact</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (messages && messages.length > 0) { %>
+                <% messages.forEach(function(message) { %>
+                  <tr>
+                    <td><%= message.title %> <%= message.fst_name %> <%= message.lst_name %></td>
+                    <td><%= message.email %></td>
+                    <td><%= message.phone %></td>
+                    <td><%= message.contact_type %></td>
+                    <td><%= message.message %></td>
+                  </tr>
+                <% }); %>
+              <% } else { %>
+                <tr>
+                  <td colspan="5" class="text-center">No messages found.</td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <% if (totalPages > 1) { %>
+        <nav>
+          <ul class="pagination">
+            <% if (currentPage > 1) { %>
+              <li><a href="?page=<%= currentPage - 1 %>">&laquo;</a></li>
+            <% } %>
+            <% for (let i = 1; i <= totalPages; i++) { %>
+              <li class="<%= i === currentPage ? 'active' : '' %>">
+                <a href="?page=<%= i %>"><%= i %></a>
+              </li>
+            <% } %>
+            <% if (currentPage < totalPages) { %>
+              <li><a href="?page=<%= currentPage + 1 %>">&raquo;</a></li>
+            <% } %>
+          </ul>
+        </nav>
+        <% } %>
+
+      </div>
+    </div>
+  </div>
+</div>
